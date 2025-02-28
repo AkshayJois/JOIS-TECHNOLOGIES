@@ -1,0 +1,198 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #12294b 0%, #019ef5 100%);
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo styles */
+.logo-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0; /* Initially hidden */
+}
+
+.logo-left img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-left:hover img {
+    transform: scale(1.1); /* Hover effect */
+}
+
+/* Main container styles */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.coming-soon {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow text to wrap on smaller screens */
+}
+
+.coming-soon .letter {
+    display: inline-block;
+}
+
+/* Button styles */
+#downloadBtn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #019ef5 0%, #6ec3dc 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#downloadBtn:hover {
+    background: linear-gradient(135deg, #6ec3dc 0%, #019ef5 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #12294b;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #f1f3f5;
+}
+
+.footer-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-item i {
+    color: #6ec3dc;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+/* Phone icon animation */
+.phone-icon:hover,
+.phone-text:hover + .phone-icon {
+    animation: ring 0.5s ease-in-out infinite;
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .coming-soon {
+        font-size: 3rem; /* Smaller font size for tablets */
+    }
+
+    #downloadBtn {
+        padding: 12px 24px;
+        font-size: 1rem; /* Smaller button text for tablets */
+    }
+
+    .footer-content h2 {
+        font-size: 1.2rem; /* Smaller footer heading for tablets */
+    }
+
+    .contact-info {
+        gap: 20px; /* Reduce gap between contact items */
+    }
+
+    .contact-item {
+        flex-direction: column; /* Stack icon and text vertically */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .coming-soon {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    #downloadBtn {
+        padding: 10px 20px;
+        font-size: 0.9rem; /* Smaller button text for mobile */
+    }
+
+    .footer-content h2 {
+        font-size: 1rem; /* Smaller footer heading for mobile */
+    }
+
+    .contact-info {
+        gap: 10px; /* Further reduce gap between contact items */
+    }
+
+    .logo-left img {
+        width: 120px; /* Smaller logo for mobile */
+    }
+}
+
+.phone-text:hover{
+    transform: scale(1.1);
+}
