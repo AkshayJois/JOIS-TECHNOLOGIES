@@ -54,7 +54,7 @@ gsap.to(".footer", {
 // Typing effect for contact info
 const phoneText = "+91 8748838850";
 const emailText = "joistechnologies@gmail.com";
-const addressText = "Urgadaru, Shivamogga- 577203";
+const addressText = "Urgaduru, Shivamogga- 577203";
 
 function typeText(element, text, delay) {
     let index = 0;
