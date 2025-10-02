@@ -119,3 +119,44 @@ downloadBtn.addEventListener("click", function () {
         },
     });
 });
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDRdI2xV8vli0vRUDsYbGc73J_RTPFvJss",
+  authDomain: "joistechnologies-71f4b.firebaseapp.com",
+  databaseURL: "https://joistechnologies-71f4b-default-rtdb.firebaseio.com",
+  projectId: "joistechnologies-71f4b",
+  storageBucket: "joistechnologies-71f4b.firebasestorage.app",
+  messagingSenderId: "800694286983",
+  appId: "1:800694286983:web:5c282481c787026bfe9622",
+  measurementId: "G-9L16N0FPLS"
+};
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+async function logVisit() {
+try {
+    // Get visitor IP from external service
+    const ipResponse = await fetch("https://api64.ipify.org?format=json");
+    const ipData = await ipResponse.json();
+    const ip = ipData.ip;
+
+    // Save to Firebase
+    const visitRef = db.ref("visits/logs").push();
+    await visitRef.set({
+    ip: ip,
+    timestamp: Date.now()
+    });
+
+    // Increment total count
+const countRef = db.ref("visits/count");
+countRef.transaction((current) => {
+  if (current === null) {
+    return 1;   // first visit → start count
+  }
+  return current + 1;
+});
+} catch (err) {
+  console.error("Failed to log visit", err);
+}
+}
+logVisit();
